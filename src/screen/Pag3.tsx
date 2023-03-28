@@ -9,7 +9,9 @@ const Pag3 = ({navigation}: Props) => {
   return (
     <View style={styles.globalMargin}>
       <Text>Pag3</Text>
-      <Button title="Ir a pág. 2" onPress={() => navigation.navigate('Pag2')} />
+      <Button title="Regresar" onPress={() => navigation.pop()} />
+      <Button title="Ir a Home" onPress={() => navigation.popToTop()} />
+
     </View>
   );
 };
