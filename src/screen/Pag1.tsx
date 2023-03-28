@@ -1,10 +1,17 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import {StackScreenProps} from '@react-navigation/stack';
+import React from 'react';
+import {Button, Text, View} from 'react-native';
+import { styles } from '../theme/appTheme';
 
-const Pag1 = () => {
+interface Props extends StackScreenProps<any, any> {}
+
+const Pag1 = ({navigation}: Props) => {
   return (
-    <View><Text>Pag1</Text></View>
-  )
-}
+    <View style={styles.globalMargin}>
+      <Text>Pag1</Text>
+      <Button title="Ir a pág. 2" onPress={() => navigation.navigate('Pag2')} />
+    </View>
+  );
+};
 
-export default Pag1
+export default Pag1;
