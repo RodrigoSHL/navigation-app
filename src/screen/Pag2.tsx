@@ -1,14 +1,23 @@
-import { useNavigation } from '@react-navigation/core';
-import React from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
+import React, { useEffect } from 'react';
 import {Button, Text, View} from 'react-native';
 import {styles} from '../theme/appTheme';
 
-const Pag2 = () => {
-  const {navigate} = useNavigation();
+interface Props extends StackScreenProps<any, any> {}
+
+const Pag2 = ({navigation}: Props) => {
+
+  useEffect(() => {
+    navigation.setOptions({
+      title: 'HelloWorld',
+      headerBackTitle: "Back"
+    })
+  }, [])
+
   return (
     <View style={styles.globalMargin}>
-      <Text>Pag2</Text>
-      <Button title="Ir a pág. 3" onPress={() => navigate('Pag3')} />
+      <Text style={styles.title}>Pag2</Text>
+      <Button title="Ir a pág. 3" onPress={() => navigation.navigate('Pag3')} />
     </View>
   );
 };
